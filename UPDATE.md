@@ -1,4 +1,4 @@
-> **Note:** Please avoid modifying the **HTML** and **CSS** as these may be customized for the current site.
+**Note:** Please avoid modifying the **HTML** and **CSS** as these may be customized for the current site.
 
 ---
 
@@ -6,18 +6,16 @@
 
 1. Navigate to the theme folder:  
    `shortcodes/tseg-faq.php`
-2. Locate the **schema** section of the code (approximately **line 25** up to the end of the closing `</script>` tag, or before the opening `<style>` tag).
+2. Locate the **schema** section of the code (approx. **line 24** up to the end of the closing `</script>` tag, or before the opening `<style>` tag).
 <img width="506.5" height="536" alt="image" src="https://github.com/user-attachments/assets/c990f2b9-0fb7-4e7c-b755-596df37c5e10" />
 
-3. Replace that section with the contents of `tseg-faq-schema.php`.  
-   *(See the full code reference in `tseg-faq.php` for guidance.)*
+3. Replace that section with this code.  
+   *(See the full code reference in [tseg-faq.php](https://github.com/renzpcloud816/tseg-faq/blob/main/UPDATE.md) for guidance.)*
 ```php
 <?php
-// --- 1. GET ALL DATA AT ONCE ---
 $faq_rows = get_field('tseg_content_faqs');
 $include_speakable_property = get_field('faq_speakable_schema');
 
-// --- 2. PROCESS THE DATA IN PHP ---
 if (!empty($faq_rows)) {
     
     $faq_items_for_schema = []; // This will hold the Question objects

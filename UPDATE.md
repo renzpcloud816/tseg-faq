@@ -84,11 +84,11 @@ Visit a page where the **FAQ shortcode** has been added and perform the followin
 
 ### 1. FAQ Accordion
 - [ ] Verify that the FAQ accordion works properly and there are no UI/UX issues.
-<img width="1121" height="527" alt="image" src="https://github.com/user-attachments/assets/59f9f99f-a3ee-4f94-9b50-0dacbb4f70b1" />
+<img width="560.5" height="263.5" alt="image" src="https://github.com/user-attachments/assets/59f9f99f-a3ee-4f94-9b50-0dacbb4f70b1" />
 
 ### 2. ACF Fields
 - [ ] Confirm that the **Include/Exclude Schema** options function correctly from the backend.
-<img width="1425" height="516" alt="image" src="https://github.com/user-attachments/assets/72b03697-2ac3-46c7-a7e3-ccdea450b0f4" />
+<img width="712.5" height="258" alt="image" src="https://github.com/user-attachments/assets/72b03697-2ac3-46c7-a7e3-ccdea450b0f4" />
 
 ### 3. FAQ Schema
 - [ ] Ensure that **HTML tags** (e.g., `<a href="">`) inside FAQ content are **stripped/removed** from the schema.  

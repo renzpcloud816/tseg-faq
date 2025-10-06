@@ -10,7 +10,7 @@
 <img width="506.5" height="536" alt="image" src="https://github.com/user-attachments/assets/c990f2b9-0fb7-4e7c-b755-596df37c5e10" />
 
 3. Replace that section with this code.  
-   *(See the full code reference in [tseg-faq.php](https://github.com/renzpcloud816/tseg-faq/blob/main/UPDATE.md) for guidance.)*
+   *(See the full code reference in [tseg-faq.php](https://github.com/renzpcloud816/tseg-faq/blob/main/tseg-faq.php) for guidance.)*
 ```php
 <?php
 $faq_rows = get_field('tseg_content_faqs');

@@ -97,4 +97,4 @@ Visit a page where the **FAQ shortcode** has been added and perform the followin
 
 ### 4. Validate Schema
 - [ ] Validate the FAQ Schema using the [Google Structured Data Testing Tool](https://developers.google.com/search/docs/appearance/structured-data).
-<img width="937" height="994" alt="image" src="https://github.com/user-attachments/assets/5ba4ee50-8eac-4bb2-9555-7a50bb400ec8" />
+<img width="468.5" height="497" alt="image" src="https://github.com/user-attachments/assets/5ba4ee50-8eac-4bb2-9555-7a50bb400ec8" />

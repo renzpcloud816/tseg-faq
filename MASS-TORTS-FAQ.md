@@ -15,7 +15,7 @@
 
 # 💻 Code Update
 
-1. Go to the **`mass-torts`** directory → open **`faq-layouts.php`**, and update the file with the latest code.
+1. Go to the **`mass-tort-content-blocks`** directory → open **`faq-layouts.php`**, and update the file with the latest code.
 ```php
 <?php 
 	$dark_bg = get_sub_field('dark_background');

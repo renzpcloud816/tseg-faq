@@ -7,9 +7,76 @@
 1. Navigate to the theme folder:  
    `shortcodes/tseg-faq.php`
 2. Locate the **schema** section of the code (approximately **line 25** up to the end of the closing `</script>` tag, or before the opening `<style>` tag).
-<img width="1013" height="1072" alt="image" src="https://github.com/user-attachments/assets/c990f2b9-0fb7-4e7c-b755-596df37c5e10" />
+<img width="506.5" height="536" alt="image" src="https://github.com/user-attachments/assets/c990f2b9-0fb7-4e7c-b755-596df37c5e10" />
+
 3. Replace that section with the contents of `tseg-faq-schema.php`.  
    *(See the full code reference in `tseg-faq.php` for guidance.)*
+```php
+<?php
+// --- 1. GET ALL DATA AT ONCE ---
+$faq_rows = get_field('tseg_content_faqs');
+$include_speakable_property = get_field('faq_speakable_schema');
+
+// --- 2. PROCESS THE DATA IN PHP ---
+if (!empty($faq_rows)) {
+    
+    $faq_items_for_schema = []; // This will hold the Question objects
+
+    // Loop through our array of rows
+    foreach ($faq_rows as $index => $row) {
+        
+        // Skip this row if the "include in schema" checkbox is not checked
+        if (empty($row['include_in_schema'])) {
+            continue;
+        }
+
+        // Get the question and answer for this row
+        $question = $row['faq_title'];
+        $answer   = wp_strip_all_tags($row['faq_answer']);
+        $item_number = $index + 1; // Counter for unique CSS selectors
+
+        // Start building the Question object
+        $current_question = [
+            '@type'          => 'Question',
+            'name'           => $question,
+            'acceptedAnswer' => [
+                '@type' => 'Answer',
+                'text'  => $answer,
+            ],
+        ];
+        
+        // As requested, add the 'speakable' property directly to the Question object
+        if ($include_speakable_property) {
+            $current_question['speakable'] = [
+                '@type'       => 'SpeakableSpecification',
+                'cssSelector' => [
+                    ".tseg-accordion-item-{$item_number} .tseg-accordion-header",
+                    ".tseg-accordion-item-{$item_number} .tseg-accordion-body",
+                ],
+            ];
+        }
+        
+        // Add the completed Question object to our main array
+        $faq_items_for_schema[] = $current_question;
+    }
+
+    // --- 3. BUILD AND OUTPUT THE FINAL SCHEMA ---
+    // Only output the script if there is at least one FAQ to include
+    if (!empty($faq_items_for_schema)) {
+        
+        // Build the final schema as a direct FAQPage type
+        $final_schema = [
+            '@context'   => 'https://schema.org',
+            '@type'      => 'FAQPage',
+            'mainEntity' => $faq_items_for_schema,
+        ];
+
+        // Safely encode and output the final JSON-LD script
+        echo '<script type="application/ld+json">' . json_encode($final_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+    }
+}
+?>
+```
 
 ---
 

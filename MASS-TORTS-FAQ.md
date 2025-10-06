@@ -1,3 +1,7 @@
+> **Note:** The **Mass Torts Template** already includes an existing FAQ Layout.  
+> This update only adds new fields and integrates the FAQ Schema functionality.  
+> Avoid modifying unrelated fields or layouts.
+
 # 🧩 ACF Configuration
 
 1. Navigate to **ACF › Mass Torts Template › Mass Tort Flexible Content › FAQs Layout**.  
